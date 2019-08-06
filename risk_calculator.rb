@@ -2,7 +2,7 @@ class RiskCalculator
   ATR_RATIO = 1.5
   RISK_PERCENTAGE = 0.02
 
-  def initialize(balance: nil, atr: nil)
+  def initialize(balance:, atr:)
     @balance = balance
     @atr = atr
   end

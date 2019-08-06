@@ -3,8 +3,9 @@ require "./risk_calculator"
 
 RSpec.describe RiskCalculator do
   it "calculates pips risked based on ATR indicator" do
+    balance = 148.5
     atr = 14
-    calculator = RiskCalculator.new(atr: atr)
+    calculator = RiskCalculator.new(balance: balance, atr: atr)
 
     result = calculator.pips
 
@@ -13,7 +14,8 @@ RSpec.describe RiskCalculator do
 
   it "calculates the amount to be risk according to percentage of tolerance" do
     balance = 148.5
-    calculator = RiskCalculator.new(balance: balance)
+    atr = 14
+    calculator = RiskCalculator.new(balance: balance, atr: atr)
 
     result = calculator.risk
 
@@ -33,9 +35,10 @@ RSpec.describe RiskCalculator do
 
   it "determines where to set the stop loss" do
     pending
+    balance = 148.5
     atr = 14
     exchange_rate = 1.10880
-    calculator = RiskCalculator.new(atr: atr)
+    calculator = RiskCalculator.new(balance: balance, atr: atr)
 
     result = calculator.stop_loss(exchange_rate)
 
